@@ -93,7 +93,7 @@ public class HigherOrderFunctionsLearningTest {
     public void testCountByDate() {
         Instant instant = Instant.parse("2021-03-01T00:00:00.00Z");
         Stream<Revision> input = getRevisions("soup04.json");
-        long actual = 0;
+        long actual = input.filter(x -> x.timestamp.compareTo(instant) < 0).count();
         int expected = 3;
         Assertions.assertEquals(expected, actual);
     }
