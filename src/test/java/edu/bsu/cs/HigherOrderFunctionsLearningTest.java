@@ -58,7 +58,7 @@ public class HigherOrderFunctionsLearningTest {
     @Test
     public void testFilter() {
         Stream<String> input = Stream.of("a1", "a2", "a3", "b1", "b2", "b3");
-        List<String> actual = input.filter(x -> x.startsWith("b")).collect(Collectors.toList());;
+        List<String> actual = input.filter(x -> x.startsWith("b")).collect(Collectors.toList());
         List<String> expected = List.of("b1", "b2", "b3");
         Assertions.assertIterableEquals(expected, actual);
     }
