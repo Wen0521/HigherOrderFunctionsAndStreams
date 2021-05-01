@@ -128,7 +128,7 @@ public class HigherOrderFunctionsLearningTest {
     public void testCountWhitelisted() {
         List<String> whitelist = List.of("Sleepy Beauty", "Spencer", "QueasyQ");
         Stream<Revision> input = getRevisions("soup30.json");
-        long actual = 0;
+        long actual = input.filter(x -> whitelist.contains(x.user)).count();
         int expected = 3;
         Assertions.assertEquals(expected, actual);
     }
