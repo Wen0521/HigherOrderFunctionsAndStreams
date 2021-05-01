@@ -43,11 +43,11 @@ public class HigherOrderFunctionsLearningTest {
     /**
      * Use the <code>map</code> function to transform a list of numbers.
      */
+    // Replace the `actual` with your solution, here and in all the following.
     @Test
     public void testMap() {
         Stream<Integer> input = Stream.of(1, 2, 3);
         List<Integer> actual = input.map(x -> x + 1).collect(Collectors.toList());
-        // Replace the `actual` with your solution, here and in all the following.
         List<Integer> expected = List.of(2, 3, 4);
         Assertions.assertIterableEquals(expected, actual);
     }
@@ -58,7 +58,7 @@ public class HigherOrderFunctionsLearningTest {
     @Test
     public void testFilter() {
         Stream<String> input = Stream.of("a1", "a2", "a3", "b1", "b2", "b3");
-        List<String> actual = null;
+        List<String> actual = input.filter(x -> x.startsWith("b")).collect(Collectors.toList());;
         List<String> expected = List.of("b1", "b2", "b3");
         Assertions.assertIterableEquals(expected, actual);
     }
