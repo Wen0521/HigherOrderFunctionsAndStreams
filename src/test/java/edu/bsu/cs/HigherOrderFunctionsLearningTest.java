@@ -174,7 +174,8 @@ public class HigherOrderFunctionsLearningTest {
     @Test
     public void testDetermineMostActiveMonth() {
         Stream<Revision> input = getRevisions("soup30.json");
-        Month actual = null;
+        Month actual = input.collect(Collectors.groupingBy(x -> x.timestamp.atZone(ZoneId.of("UTC")).getMonth(),Collectors.counting()))
+                            .entrySet().stream().max(Map.Entry.comparingByValue()).get().getKey();
         Month expected = Month.FEBRUARY;
         Assertions.assertEquals(expected, actual);
     }
